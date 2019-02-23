@@ -30,7 +30,7 @@ So I guess what laid down the path to you is by far not a great college or a gre
 
 At the end of the day I found myself learning one crucial skill, which is the ability to find and learn the information I need, do it fast and produce a solid knowledge out of it. I really like the saying that if you walk through the forest down the same path you won't get out of it if you get lost in it. So for me it has always been important to know how to get out of the forest from any point and keep learning. I don't need you to tell me how to do something. Tell me what to do instead!
 
-For a long time my studies felt incomplete. I don't like to leave alone any framework or library or anything that I am learning until I understand every line of it. but now I feel sure enough of myself to file this CV.
+For a long time my studies felt incomplete. I don't like to leave alone any framework or library or anything that I am learning until I understand every line of it. TODO Now I feel sure enough of myself to file this CV.
 
 So as you can see becoming part of _your_ community is a very important step in my career.  Now I feel like the time has finally come to take my knowledge to the whole new level!
 
