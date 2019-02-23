@@ -94,3 +94,10 @@ __Things I am learning:__
   - HTML & CSS (Jon Ducket)
   - Speaking JavaScript (Dr. Axel Rauschmayer)
 
+## English
+
+__TOEFL iBT: C1 (104 out of 120)__ (last taken in 2017)
+
+| Reading | Speaking | Listening | Writing |
+| :---: | :---: | :---: | :---: |
+| 27 out of 30 | 26 out of 30 | 27 out of 30 | 24 out of 30 |
