@@ -33,3 +33,64 @@ At the end of the day I found myself learning one crucial skill, which is the ab
 For a long time my studies felt incomplete. I don't like to leave alone any framework or library or anything that I am learning until I understand every line of it. but now I feel sure enough of myself to file this CV.
 
 So as you can see becoming part of _your_ community is a very important step in my career.  Now I feel like the time has finally come to take my knowledge to the whole new level!
+
+## My Skills
+
+__Things I know:__
+
+- HTML:
+  - Semantics
+  - Valid
+  - BEM
+- CSS:
+  - Responsive
+  - Sass
+  - transforms, gradients, animation etc.
+  - Flexbox, Grid, Floats
+- JavaScript:
+  - OOP + FP
+  - ES6
+  - DOM
+  - _etc._
+- Frameworks and Libraries:
+  - Bootstrap
+  - JQuery
+- Others:
+  - Git
+  - Regex
+  - Photoshop, CorelDraw
+
+__Things I am learning:__
+
+- SVG
+- TypeScript
+- Angular.js
+- npm, gulp
+- _everything_
+
+## My projects
+
+- [My very first serious website in plain HTML/CSS](https://example.com)
+- [GhostHost (Sass + JS)](https://tomsssm.github.io/ghostHost/#)
+- [Notebook.js](https://tomsssm.github.io/Notebook/)
+
+## My education
+
+- Courses:
+  - CS50
+  - Rolling Scopes School
+- Web
+  - Codewars
+  - freeCodeCamp
+  - w3schools
+  - The Modern JavaScript Tutorial
+  - MDN
+  - Medium
+  - Codecademy
+  - CSS Tricks
+  - Udemy
+  - _etc._
+- Books:
+  - HTML & CSS (Jon Ducket)
+  - Speaking JavaScript (Dr. Axel Rauschmayer)
+
