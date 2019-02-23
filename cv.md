@@ -8,7 +8,7 @@ Hi! I'm Ilya, I love coding...
 
 __Birth:__ 08/01/2000
 
-__Web:__ [www.ilya.com](https://tomsssm.github.io/ghostHost)
+__Web:__ [www.ilya.com](https://tomsssm.github.io/rsschool-2019Q1-cv/)
 
 __Phone:__ +1(40)1234567
 
@@ -70,7 +70,7 @@ __Things I am learning:__
 
 ## My projects
 
-- [My very first serious website in plain HTML/CSS](https://example.com)
+- My very first serious website in plain HTML/CSS
 - [GhostHost (Sass + JS)](https://tomsssm.github.io/ghostHost/#)
 - [Notebook.js](https://tomsssm.github.io/Notebook/)
 
