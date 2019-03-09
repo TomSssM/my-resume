@@ -5,6 +5,181 @@
   box-sizing: border-box;
 }
 
+body {
+  display: grid;
+  grid-template: auto / 1fr [main-start] 1024px [main-end] 1fr;
+  background: url('../../assets/images/background.jpg') no-repeat top center;
+  background-size: 100% auto;
+  background-attachment: fixed;
+  padding: .4rem 0;
+  font-family: 'Concert One', cursive;
+
+  &::-webkit-scrollbar {
+    width: 17px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: $primary-col;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: #ccc;
+    border-radius: 50px;
+  }
+
+  &::-webkit-scrollbar-thumb:hover {
+    background: $secondary-col;
+    background-image: linear-gradient($secondary-col, #ccc, $primary-bg);
+    border-radius: 50px;
+  }
+}
+
+body > * {
+  grid-column: main;
+}
+
+.header {
+  background-color: $primary-bg;
+  background-image: 
+    linear-gradient(40deg, transparent 92%, $grad-col-block 92%), 
+    linear-gradient(12deg, transparent 94%, $grad-col-block 94%), 
+    linear-gradient(70deg, transparent 93%, $grad-col-block 93%);
+  border-radius: 10px 10px 0 0;
+
+  &__h1 {
+    position: fixed;
+    width: 1px;
+    height: 1px;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+  }
+}
+
+.about-me {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+
+  &__header {
+    align-self: flex-start;
+  }
+
+  &__container {
+    display: flex;
+    flex-flow: row nowrap;
+    padding: .7rem 0;
+    width: 90%;
+  }
+
+  &__pic {
+    position: relative;
+    width: 120px;
+    height: 120px;
+    margin: 5px;
+    margin-right: 30px;
+    background-image: linear-gradient(transparent 50%, $primary-col 50%);
+    border-radius: 50%;
+    
+    &::before {
+      content: '';
+      display: block;
+      position: absolute;
+      left: 7px;
+      right: 7px;
+      top: 7px;
+      bottom: 7px;
+      background: url('../../assets/images/ilya.jpg') no-repeat center top;
+      background-size: 130% auto;
+      box-shadow: 0 0 0 3px #ccb453;
+      border-radius: 50%;
+    }
+  }
+
+  &__data {
+    display: flex;
+    flex-flow: column nowrap;
+    padding: .4rem 0;
+    flex-grow: 1;
+
+    border: 3px solid $primary-col;
+    border-radius: 7px;
+  }
+
+  &__data-row {
+    margin: .4rem 0;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+  }
+
+  &__icon-cont {
+    width: 43px;
+    display: inline-block;
+    padding: .4rem;
+    padding-right: 1rem;
+    margin-right: .4rem;
+
+    background-color: $primary-col;
+    border-radius: 0 30px 30px 0;
+    color: #fff;
+    font-size: 1.3rem;
+  }
+}
+
+.main {
+  background-color: $primary-bg;
+
+  &__header {
+    font-size: 2rem;
+    padding: .3rem 40px;
+    margin: .7rem 0;
+    background-image: linear-gradient(120deg, $primary-col 88%, transparent 88%);
+  }
+
+  &__link {
+    color: $primary-col;
+    transition: all .1s ease-in-out;
+
+    &:hover {
+      color: $secondary-col;
+
+      &::before {
+        color: #ccb4537e;
+      }
+    }
+  }
+
+  &__link--header {
+    display: inline-block;
+    width: 100%;
+
+    color: #fff;
+    transition: color .1s ease-in-out;
+    position: relative;
+
+    &::before {
+      content: "\f0c1";
+      display: block;
+      position: absolute;
+      width: 30px;
+      height: 1.2rem;
+      top: 7px;
+      left: -34px;
+      color: transparent;
+      transition: inherit;
+
+      font-family: FontAwesome;
+      font-size: 1.2rem;
+      text-align: right;
+    }
+  }
+
+  &__text {
+    color: $primary-col;
+  }
+}
+
 .code-container {
   display: grid;
   grid-template: 4fr 2fr / auto;
@@ -97,7 +272,7 @@
   cursor: default;
   user-select: none;
   transition: .3s 1s all ease-in-out;
-  font-family: fantasy; // TODO add better font
+  font-family: 'Concert One', cursive;
   text-transform: uppercase;
 
   &--hidden {
