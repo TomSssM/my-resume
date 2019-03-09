@@ -4,7 +4,7 @@ Hi! I'm Ilya, I love coding...
 
 ## About Me
 
-![my photo](./ilya.jpg)
+![my photo](./assets/images/ilya.jpg)
 
 __Birth:__ 08/01/2000
 
