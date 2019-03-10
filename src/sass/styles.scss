@@ -56,20 +56,107 @@ body > * {
   }
 }
 
-.about-me {
-  display: flex;
-  flex-flow: column nowrap;
-  align-items: center;
+.main {
+  background-color: $primary-bg;
 
   &__header {
     align-self: flex-start;
+    margin: .7rem 0;
+    margin-right: 40px;
+    padding: .4rem;
+    padding-left: 40px;
+    position: relative;
+    height: 48px;
+
+    font-size: 2rem;
+    background-color: $primary-col;
+    
+    &::before {
+      content: '';
+      display: block;
+      position: absolute;
+      right: -48px;
+      top: 0;
+      border-style: solid;
+      border-width: 0 24px 48px 24px;
+      border-color: transparent;
+      border-left-color: $primary-col;
+    }
   }
+
+  &__header--level-3 {
+    align-self: stretch;
+    text-align: center;
+    background: none;
+    font-size: 1.7rem;
+    font-family: 'Encode Sans Condensed', sans-serif;
+    margin: 0;
+    padding: .4rem 0;
+    text-decoration: underline #9bb7df;
+
+    &::before {
+      display: none;
+    }
+  }
+
+  &__link {
+    color: $primary-col;
+    transition: all .1s ease-in-out;
+
+    &:hover {
+      color: $secondary-col;
+
+      &::before {
+        color: #ccb4537e;
+      }
+    }
+  }
+
+  &__link--header {
+    display: inline-block;
+    width: 100%;
+
+    color: #fff;
+    position: relative;
+
+    &::before {
+      content: "\f0c1";
+      display: block;
+      position: absolute;
+      width: 30px;
+      height: 1.2rem;
+      top: 7px;
+      left: -34px;
+      color: transparent;
+      transition: inherit;
+
+      font-family: FontAwesome;
+      font-size: 1.2rem;
+      text-align: right;
+    }
+  }
+
+  &__text {
+    color: $primary-col;
+  }
+
+  &__block {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: flex-start;
+  }
+
+  &__container {
+    align-self: stretch;
+  }
+}
+
+.about-me {
 
   &__container {
     display: flex;
     flex-flow: row nowrap;
-    padding: .7rem 0;
-    width: 90%;
+    padding: .7rem 4rem;
   }
 
   &__pic {
@@ -127,56 +214,168 @@ body > * {
   }
 }
 
-.main {
-  background-color: $primary-bg;
+.skills {
 
-  &__header {
-    font-size: 2rem;
-    padding: .3rem 40px;
-    margin: .7rem 0;
-    background-image: linear-gradient(120deg, $primary-col 88%, transparent 88%);
+  &__list {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-auto-rows: 40px;
+    padding: .7rem 0;
+    grid-auto-flow: dense;
   }
 
-  &__link {
-    color: $primary-col;
-    transition: all .1s ease-in-out;
+  &__item {
 
-    &:hover {
-      color: $secondary-col;
+    &--big {
+      grid-area: span 4 / span 4;
+      background: no-repeat center center;
+      background-size: auto 80%;
+      border: 1px solid transparent;
+      border-width: 1px 0;
+    }
 
-      &::before {
-        color: #ccb4537e;
-      }
+    &--wide {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #fff;
+      border-bottom: 1px solid transparent;
+    }
+    
+    &--medium {
+      background: no-repeat center center;
+      background-size: auto 80%;
+      grid-area: span 2 / span 2;
+    }
+    
+    &--html {
+      grid-column: 1 / span 4;
+      border-image: linear-gradient(to right, #ff651e, #004ce9) 1;
+    }
+    
+    &--css {
+      grid-column: 5 / span 4;
+      border-image: linear-gradient(to right, #004ce9, #f7e018) 1;
+    }
+    
+    &--js {
+      grid-column: 9 / span 4;
+      border-bottom-color: #f7e018;
     }
   }
 
-  &__link--header {
-    display: inline-block;
-    width: 100%;
-
-    color: #fff;
-    transition: color .1s ease-in-out;
-    position: relative;
-
-    &::before {
-      content: "\f0c1";
-      display: block;
-      position: absolute;
-      width: 30px;
-      height: 1.2rem;
-      top: 7px;
-      left: -34px;
-      color: transparent;
-      transition: inherit;
-
-      font-family: FontAwesome;
-      font-size: 1.2rem;
-      text-align: right;
-    }
+  &__writing {
+    font-family: 'Encode Sans Condensed', sans-serif;
+    color: $primary-col;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+  
+  &__html {
+    background-color: lighten($color: #ff651e, $amount: 40);
+    background-image: url('../../assets/images/html_logo.png');
+    border-image: linear-gradient(to right, #ff651e, #004ce9) 1;
   }
 
-  &__text {
-    color: $primary-col;
+  &__css {
+    background-color: lighten($color: #004ce9, $amount: 40);
+    background-image: url('../../assets/images/css_logo.png');
+    border-image: linear-gradient(to right, #004ce9, #f7e018) 1;
+  }
+
+  &__js {
+    background-color: #f7e018;
+    background-image: url('../../assets/images/javascript_logo.png');
+    background-position: 90% 80%;
+    border-bottom-color: #f7e018;
+  }
+
+  &__git {
+    background-image: url('../../assets/images/git_logo.png');
+  }
+
+  &__sass {
+    background-image: url('../../assets/images/2000px-Sass_Logo_Color.svg.png');
+    background-color: lighten($color: #ce679a, $amount: 30);
+  }
+
+  &__less {
+    background-image: url('../../assets/images/less_logo.png');
+    background-size: 70% auto;
+    background-color: lighten($color: #2a4f84, $amount: 40);
+  }
+
+  &__jq {
+    background-image: url('../../assets/images/jQuery_logo.gif');
+  }
+
+  &__boot {
+    background-image: url('../../assets/images/220px-Boostrap_logo.svg.png');
+  }
+
+  &__ajax {
+    background-image: url('../../assets/images/ajax__logo.png');
+    background-color: #0784cc;
+    background-size: auto 49%;
+  }
+
+  &__unknown {
+    width: 100px;
+    height: 100px;
+    margin: 0 .7rem;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-color: #fff;
+    background-size: auto 80%;
+    border-radius: 50%;
+    box-shadow: 
+      0 0 0 3px #ccc, 
+      0 0 0 5px #f3dbe7,
+      0 0 0 7px #9bb7df;
+  }
+
+  &__ts {
+    background-image: url('../../assets/images/typescript_logo.png');
+    background-color: #007acc;
+  }
+
+  &__node {
+    // TODO: figure out how to do background more elegantly
+    background: 
+    no-repeat url("../../assets/images/node_logo.png") center 22%, 
+    no-repeat url("../../assets/images/npm_logo.png") center 73%;
+    background-size: 70% auto, 40% auto;
+    background-color: #fff;
+  }
+
+  &__ang {
+    background-image: url('../../assets/images/angular_logo.png');
+  }
+
+  &__svg {
+    background-image: url('../../assets/images/svg_logo.png');
+    background-size: auto 70%;
+  }
+
+  &__learning {
+    display: flex;
+    flex-flow: column nowrap;
+  }
+
+  &__learning-cont {
+    display: flex;
+    justify-content: center;
+    padding: .7rem 0;
+  }
+}
+
+.projects {
+
+  &__article {
+    display: flex;
+    justify-content: space-evenly;
+    // TODO: continue
   }
 }
 
@@ -262,7 +461,6 @@ body > * {
     }
   }
 }
-
 .code-writing {
   align-self: center;
   justify-self: center;

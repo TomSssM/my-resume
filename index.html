@@ -9,6 +9,8 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
   <link href="https://fonts.googleapis.com/css?family=Concert+One" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Encode+Sans+Condensed" rel="stylesheet">
+
   <link rel="stylesheet" href="./src/css/reset.css">
   <link rel="stylesheet" href="./src/css/styles.css">
 
@@ -21,13 +23,13 @@
 
     <h1 class="header__h1">Ilya Kortasov CV</h1>
 
-    <section class="about-me">
-      <h1 class="main__header about-me__header" id="about-me">
+    <section class="about-me main__block">
+      <h2 class="main__header" id="about-me">
         <a class="main__link main__link--header" href="#about-me">About Me</a>
-      </h1>
-      <div class="about-me__container">
+      </h2>
+      <div class="about-me__container main__container">
         <div class="about-me__pic"></div>
-        <div class="about-me__data">
+        <article class="about-me__data">
           <div class="about-me__data-row">
             <span class="about-me__icon-cont">
                 <i class="fa fa-birthday-cake"></i>
@@ -58,12 +60,82 @@
             </span>
             <a class="main__link" href="mailto:ilyashome3@gmail.com">ilyashome3@gmail.com</a>
           </div>
-        </div>
+        </article>
       </div>
     </section>
   </header>
   
-  <main class="main"></main>
+  <main class="main">
+    <section class="skills main__block">
+      <h2 class="main__header" id="my-skills">
+        <a href="#my-skills" class="main__link main__link--header">My Skills</a>
+      </h2>
+      <article class="main__container skills__list">
+        <div class="skills__item skills__item--big skills__html"></div>
+        <div class="skills__item skills__item--big skills__css"></div>
+        <div class="skills__item skills__item--big skills__js"></div>
+
+        <div class="skills__item skills__item--wide skills__item--html">
+          <span class="skills__writing">BEM</span>
+        </div>
+        <div class="skills__item skills__item--wide skills__item--html">
+          <span class="skills__writing">semantics</span>
+        </div>
+        <div class="skills__item skills__item--wide skills__item--html">
+          <span class="skills__writing">valid</span>
+        </div>
+
+        <div class="skills__item skills__item--wide skills__item--css">
+          <span class="skills__writing">CSS3</span>
+        </div>
+        <div class="skills__item skills__item--wide skills__item--css">
+          <span class="skills__writing">flexbox, grid</span>
+        </div>
+        <div class="skills__item skills__item--wide skills__item--css">
+          <span class="skills__writing">transforms, gradients, animation...</span>
+        </div>
+
+        <div class="skills__item skills__item--wide skills__item--js">
+          <span class="skills__writing">OOP + FP</span>
+        </div>
+        <div class="skills__item skills__item--wide skills__item--js">
+          <span class="skills__writing">ES6</span>
+        </div>
+        <div class="skills__item skills__item--wide skills__item--js">
+          <span class="skills__writing">DOM</span>
+        </div>
+
+        <div class="skills__item skills__item--medium skills__git"></div>
+        <div class="skills__item skills__item--medium skills__sass"></div>
+        <div class="skills__item skills__item--medium skills__less"></div>
+        <div class="skills__item skills__item--medium skills__jq"></div>
+        <div class="skills__item skills__item--medium skills__boot"></div>
+        <div class="skills__item skills__item--medium skills__ajax"></div>
+      </article>
+      <article class="main__container skills__learning">
+        <h3 class="main__header main__header--level-3">Things I'm Learning:</h3>
+        <div class="skills__learning-cont">
+          <div class="skills__unknown skills__ts"></div>
+          <div class="skills__unknown skills__node"></div>
+          <div class="skills__unknown skills__ang"></div>
+          <div class="skills__unknown skills__svg"></div>
+        </div>
+      </article>
+    </section>
+    <section class="projects main__block">
+      <h2 class="main__header" id="my-projects">
+        <a href="#my-projects" class="main__link main__link--header">My Projects</a>
+      </h2>
+      <article class="projects__article main__container">
+        <div class="projects__project"></div>
+        <div class="projects__project"></div>
+        <div class="projects__project"></div>
+      </article>
+    </section>
+    <section class="my-background"></section>
+    <section class="education"></section>
+    <section class="english"></section>
+  </main>
 
   <footer class="footer"></footer>
 
@@ -100,6 +172,9 @@
 
   <!-- TODO: uncomment -->
   <!-- <script src="./index.js"></script> -->
+
+  <!-- TODO: serve smaller pics -->
+  <!-- TODO: fontello -->
 
 </body>
 
