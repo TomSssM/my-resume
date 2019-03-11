@@ -70,50 +70,61 @@
       <h2 class="main__header" id="my-skills">
         <a href="#my-skills" class="main__link main__link--header">My Skills</a>
       </h2>
-      <article class="main__container skills__list">
-        <div class="skills__item skills__item--big skills__html"></div>
-        <div class="skills__item skills__item--big skills__css"></div>
-        <div class="skills__item skills__item--big skills__js"></div>
+      
+      <ul class="main__container skills__list">
+        <li class="skills__item skills__html"></li>
+        <li class="skills__item skills__details skills__details--html">
+          <ul class="skills__details-container">
+            <li class="skills__detail skills__detail--html">
+              <span class="skills__text">BEM</span>
+            </li>
+            <li class="skills__detail skills__detail--html">
+              <span class="skills__text">Valid</span>
+            </li>
+            <li class="skills__detail skills__detail--html">
+              <span class="skills__text">Semantics</span>
+            </li>
+          </ul>
+        </li>
+        <li class="skills__item skills__css"></li>
+        <li class="skills__item skills__details skills__details--css">
+          <ul class="skills__details-container">
+            <li class="skills__detail skills__detail--css">
+              <span class="skills__text">CSS3</span>
+            </li>
+            <li class="skills__detail skills__detail--css">
+              <span class="skills__text">flexbox, grid</span>
+            </li>
+            <li class="skills__detail skills__detail--css">
+              <span class="skills__text">transforms, gradients, animation...</span>
+            </li>
+          </ul>
+        </li>
+        <li class="skills__item skills__js"></li>
+        <li class="skills__item skills__details skills__details--js">
+          <ul class="skills__details-container">
+            <li class="skills__detail skills__detail--js">
+              <span class="skills__text">OOP + FP</span>
+            </li>
+            <li class="skills__detail skills__detail--js">
+              <span class="skills__text">ES6</span>
+            </li>
+            <li class="skills__detail skills__detail--js">
+              <span class="skills__text">DOM</span>
+            </li>
+          </ul>
+        </li>
+        <li class="skills__item skills__item--small skills__git"></li>
+        <li class="skills__item skills__item--small skills__sass"></li>
+        <li class="skills__item skills__item--small skills__less"></li>
+        <li class="skills__item skills__item--small skills__jq"></li>
+        <li class="skills__item skills__item--small skills__boot"></li>
+        <li class="skills__item skills__item--small skills__ajax"></li>
+      </ul>
 
-        <div class="skills__item skills__item--wide skills__item--html">
-          <span class="skills__writing">BEM</span>
-        </div>
-        <div class="skills__item skills__item--wide skills__item--html">
-          <span class="skills__writing">semantics</span>
-        </div>
-        <div class="skills__item skills__item--wide skills__item--html">
-          <span class="skills__writing">valid</span>
-        </div>
-
-        <div class="skills__item skills__item--wide skills__item--css">
-          <span class="skills__writing">CSS3</span>
-        </div>
-        <div class="skills__item skills__item--wide skills__item--css">
-          <span class="skills__writing">flexbox, grid</span>
-        </div>
-        <div class="skills__item skills__item--wide skills__item--css">
-          <span class="skills__writing">transforms, gradients, animation...</span>
-        </div>
-
-        <div class="skills__item skills__item--wide skills__item--js">
-          <span class="skills__writing">OOP + FP</span>
-        </div>
-        <div class="skills__item skills__item--wide skills__item--js">
-          <span class="skills__writing">ES6</span>
-        </div>
-        <div class="skills__item skills__item--wide skills__item--js">
-          <span class="skills__writing">DOM</span>
-        </div>
-
-        <div class="skills__item skills__item--medium skills__git"></div>
-        <div class="skills__item skills__item--medium skills__sass"></div>
-        <div class="skills__item skills__item--medium skills__less"></div>
-        <div class="skills__item skills__item--medium skills__jq"></div>
-        <div class="skills__item skills__item--medium skills__boot"></div>
-        <div class="skills__item skills__item--medium skills__ajax"></div>
-      </article>
       <article class="main__container skills__learning">
         <h3 class="main__header main__header--level-3">Things I'm Learning:</h3>
+        <!-- TODO: make it an ul -->
         <div class="skills__learning-cont">
           <div class="skills__unknown skills__ts"></div>
           <div class="skills__unknown skills__node"></div>
@@ -175,6 +186,7 @@
 
   <!-- TODO: serve smaller pics -->
   <!-- TODO: fontello -->
+  <!-- TODO: change the cv theme -->
 
 </body>
 

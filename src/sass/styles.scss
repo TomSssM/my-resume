@@ -14,6 +14,10 @@ body {
   padding: .4rem 0;
   font-family: 'Concert One', cursive;
 
+  & > * {
+    grid-column: main;
+  }
+
   &::-webkit-scrollbar {
     width: 17px;
   }
@@ -32,10 +36,6 @@ body {
     background-image: linear-gradient($secondary-col, #ccc, $primary-bg);
     border-radius: 50px;
   }
-}
-
-body > * {
-  grid-column: main;
 }
 
 .header {
@@ -58,6 +58,7 @@ body > * {
 
 .main {
   background-color: $primary-bg;
+  border-radius: 0 0 10px 10px;
 
   &__header {
     align-self: flex-start;
@@ -218,53 +219,78 @@ body > * {
 
   &__list {
     display: grid;
-    grid-template-columns: repeat(12, 1fr);
-    grid-auto-rows: 40px;
+    grid-template-columns:
+      [html-start] repeat(4, 1fr) 
+      [html-end css-start] repeat(4, 1fr) 
+      [css-end js-start] repeat(4, 1fr) [js-end];
+    grid-template-rows:
+      [html-start css-start js-start] 
+      repeat(4, $row-height) 
+      [html-end css-end js-end];
+    grid-auto-rows: $row-height;
     padding: .7rem 0;
-    grid-auto-flow: dense;
   }
 
   &__item {
+    border: 1px solid transparent;
+    border-width: 1px 0;
+    background: no-repeat center / auto 80%;
 
-    &--big {
-      grid-area: span 4 / span 4;
-      background: no-repeat center center;
-      background-size: auto 80%;
-      border: 1px solid transparent;
-      border-width: 1px 0;
-    }
-
-    &--wide {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background-color: #fff;
-      border-bottom: 1px solid transparent;
-    }
-    
-    &--medium {
-      background: no-repeat center center;
-      background-size: auto 80%;
+    &--small {
       grid-area: span 2 / span 2;
-    }
-    
-    &--html {
-      grid-column: 1 / span 4;
-      border-image: linear-gradient(to right, #ff651e, #004ce9) 1;
-    }
-    
-    &--css {
-      grid-column: 5 / span 4;
-      border-image: linear-gradient(to right, #004ce9, #f7e018) 1;
-    }
-    
-    &--js {
-      grid-column: 9 / span 4;
-      border-bottom-color: #f7e018;
+      border: none;
     }
   }
 
-  &__writing {
+  &__details {
+    border: none;
+
+    &--html {
+      grid-row: html-end / span $num-of-details;
+      grid-column: html;
+    }
+    
+    &--css {
+      grid-row: css-end / span $num-of-details;
+      grid-column: css;
+    }
+    
+    &--js {
+      grid-row: js-end / span $num-of-details;
+      grid-column: js;
+    }
+  }
+
+  &__details-container {
+    display: flex;
+    flex-flow: column nowrap;
+    height: 100%;
+  }
+
+  &__detail {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-grow: 1;
+
+    border-bottom: 1px solid transparent;
+    background: #fff;
+    text-align: center;
+
+    &--html {
+      border-image: linear-gradient(to right, #ff651e, #004ce9) 1;
+    }
+
+    &--css {
+      border-image: linear-gradient(to right, #004ce9, #f7e018) 1;
+    }
+
+    &--js {
+      border-color: #f7e018;
+    }
+  }
+
+  &__text {
     font-family: 'Encode Sans Condensed', sans-serif;
     color: $primary-col;
     font-weight: 700;
@@ -273,22 +299,25 @@ body > * {
   }
   
   &__html {
+    grid-area: html;
     background-color: lighten($color: #ff651e, $amount: 40);
     background-image: url('../../assets/images/html_logo.png');
     border-image: linear-gradient(to right, #ff651e, #004ce9) 1;
   }
 
   &__css {
+    grid-area: css;
     background-color: lighten($color: #004ce9, $amount: 40);
     background-image: url('../../assets/images/css_logo.png');
     border-image: linear-gradient(to right, #004ce9, #f7e018) 1;
   }
 
   &__js {
+    grid-area: js;
     background-color: #f7e018;
     background-image: url('../../assets/images/javascript_logo.png');
     background-position: 90% 80%;
-    border-bottom-color: #f7e018;
+    border-color: #f7e018;
   }
 
   &__git {
@@ -341,12 +370,9 @@ body > * {
   }
 
   &__node {
-    // TODO: figure out how to do background more elegantly
     background: 
-    no-repeat url("../../assets/images/node_logo.png") center 22%, 
-    no-repeat url("../../assets/images/npm_logo.png") center 73%;
-    background-size: 70% auto, 40% auto;
-    background-color: #fff;
+    no-repeat url("../../assets/images/node_logo.png") center 22% / 70% auto, 
+    no-repeat url("../../assets/images/npm_logo.png") center 73% / 40% auto #fff;
   }
 
   &__ang {
@@ -475,5 +501,17 @@ body > * {
 
   &--hidden {
     color: transparent;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .skills__list {
+    grid-template-columns: 
+      [html-start js-start] repeat(6, 1fr)
+      [html-end js-end css-start] repeat(6, 1fr) [css-end];
+    grid-template-rows: 
+      [html-start css-start] repeat(4, $row-height)
+      [html-end css-end] repeat($num-of-details, $row-height) 
+      [js-start] repeat(4, $row-height) [js-end];
   }
 }
