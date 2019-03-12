@@ -407,9 +407,85 @@ body {
   }
 
   &__project {
-    width: 200px;
-    height: 200px;
+    display: flex;
+    flex-flow: column nowrap;
+    width: 280px;
     margin: .7rem;
+    padding: .4rem;
+
+    background-color: lighten($color: $secondary-col, $amount: 10);
+    border-radius: 7px;
+    box-shadow: 0 3px 0 0 darken($color: $secondary-col, $amount: 30);
+  }
+
+  &__text {
+    display: inline-block;
+    border-radius: 7px;
+    background: $primary-col-dimmed;
+    color: #fff;
+  }
+  
+  &__name {
+    align-self: center;
+    padding: .4rem;
+    font-family: 'Source Code Pro'; // TODO add the font
+    font-weight: bold;
+    text-align: center;
+  }
+
+  &__description {
+    padding: .4rem;
+    margin: .4rem 0;
+
+    border: 1px solid $primary-col-dimmed;
+    border-radius: 7px;
+  }
+
+  &__property {
+    font-size: .8rem;
+    padding: .2rem;
+    margin-top: .8rem;
+
+    &--first {
+      margin-top: 0;
+    }
+  }
+
+  &__indicator {
+    height: 1rem;
+    border: 1px solid $primary-col-dimmed;
+    margin: .4rem 0;
+    position: relative;
+  }
+
+  &__indicator-runner {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    background: $primary-col-dimmed;
+    transition: width .4s ease-in-out;
+    height: 100%;
+  }
+
+  &__link-container {
+    display: inline-flex;
+    align-self: center;
+    border-radius: 20px;
+    background-color: lighten($color: $secondary-col, $amount: 20);
+    overflow: hidden;
+  }
+
+  &__link {
+    display: block;
+    padding: .4rem .7rem;
+    color: darken($color: $secondary-col, $amount: 30);
+    transition: all .1s ease-in-out;
+
+    &:hover {
+      background: darken($color: $secondary-col, $amount: 40);
+      color: $primary-col-dimmed;
+    }
   }
 }
 
