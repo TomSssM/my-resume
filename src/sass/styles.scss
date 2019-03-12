@@ -391,6 +391,7 @@ body {
 
   &__learning-cont {
     display: flex;
+    flex-flow: row wrap;
     justify-content: center;
     padding: .7rem 0;
   }
@@ -709,20 +710,97 @@ body {
   }
 }
 
-// @media screen and (max-width: 1024px) {
-//   body {
-//     grid-template-columns: auto;
-//   }
+@media screen and (max-width: 1024px) {
+  body {
+    grid-template-columns: auto;
+    padding: 0;
+  }
 
-//   .skills__list {
-//     grid-template-columns: 
-//       [html-start js-start] repeat(6, 1fr)
-//       [html-end js-end css-start] repeat(6, 1fr) [css-end];
-//     grid-template-rows: 
-//       [html-start css-start] repeat(4, $row-height)
-//       [html-end css-end] repeat($num-of-details, $row-height) 
-//       [js-start] repeat(4, $row-height) [js-end];
-//   }
-// }
+  .header {
+    border-radius: 0;
+  }
 
-// @media screen and (max-width: 620px) {}
+  .main {
+    border-radius: 0;
+  }
+
+  .skills {
+    grid-auto-flow: dense;
+
+    &__detail {
+
+      &--js {
+        border-right: 1px solid #f7e018;
+      }
+    }
+
+    &__sass {
+      grid-column: js-end / span 2;
+      grid-row: sass / span 2;
+    }
+    
+    &__less {
+      grid-column: js-end / span 2;
+      grid-row: less / span 2;
+    }
+    
+    &__ajax {
+      grid-column: js-end / span 2;
+      grid-row: ajax / span 2;
+    }
+  }
+
+  .skills__list {
+    grid-template-columns: 
+      [html-start js-start] repeat(6, 1fr)
+      [html-end js-end css-start] repeat(6, 1fr) [css-end];
+    grid-template-rows: 
+      [html-start css-start] repeat(4, $row-height)
+      [html-end css-end] repeat($num-of-details, $row-height) 
+      [js-start sass] repeat(2, $row-height) [less] repeat(2, $row-height) [js-end ajax];
+  }
+
+  .about-me {
+
+    &__container {
+      flex-flow: column nowrap;
+      align-items: center;
+    }
+  }
+}
+
+@media screen and (max-width: 620px) {
+  .skills {
+
+    &__list {
+      grid-template-columns: [html-start css-start js-start] repeat(4, 1fr) [html-end css-end js-end];
+      grid-template-rows:
+        [html-start] repeat(4, $row-height) 
+        [html-end] repeat($num-of-details, $row-height) [css-start]
+        repeat(4, $row-height) [css-end] repeat($num-of-details, $row-height) 
+        [js-start] repeat(4, $row-height) [js-end] repeat($num-of-details, $row-height) [others-start];
+      grid-auto-columns: 1fr;
+      grid-auto-flow: row;
+    }
+
+    &__item {
+
+      &--small {
+        grid-area: span 2 / span 2;
+      }
+    }
+  }
+
+  .english {
+
+    &__table {
+      grid-template-columns: auto;
+    }
+
+    @for $i from 1 through 3 {
+      &__cell--num-#{$i} {
+        grid-row: $i * 2;
+      }
+    }
+  }
+}
