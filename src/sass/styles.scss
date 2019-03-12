@@ -352,7 +352,7 @@ body {
   &__unknown {
     width: 100px;
     height: 100px;
-    margin: 0 .7rem;
+    margin: .7rem;
     background-repeat: no-repeat;
     background-position: center center;
     background-color: #fff;
@@ -398,10 +398,18 @@ body {
 
 .projects {
 
-  &__article {
+  &__list {
     display: flex;
+    flex-flow: row wrap;
     justify-content: space-evenly;
-    // TODO: continue
+    align-items: center;
+    align-content: space-around;
+  }
+
+  &__project {
+    width: 200px;
+    height: 200px;
+    margin: .7rem;
   }
 }
 
