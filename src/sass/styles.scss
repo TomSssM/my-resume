@@ -897,12 +897,12 @@ body {
   -ms-user-select: none;
   user-select: none;
   -webkit-transition: .3s 1s all ease-in-out;
-  transition: .3s 1s all ease-in-out;
   font-family: 'Concert One', cursive;
   text-transform: uppercase;
-
+  
   &--hidden {
     color: transparent;
+    transition: .3s 1s all ease-in-out;
   }
 }
 
