@@ -1,17 +1,18 @@
-@import "./mixins-n-placeholders";
+@import "./font";
 @import "./variables";
 
 * {
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
 }
 
 body {
   display: grid;
   grid-template: auto / 1fr [main-start] 1024px [main-end] 1fr;
   background: url('../../assets/images/background.jpg') no-repeat top center;
-  background-size: 100% auto;
+  background-size: cover;
   background-attachment: fixed;
-  padding: .4rem 0;
+  padding-top: .7rem;
   font-family: 'Concert One', cursive;
 
   & > * {
@@ -33,16 +34,18 @@ body {
 
   &::-webkit-scrollbar-thumb:hover {
     background: $secondary-col;
+    background-image: -webkit-gradient(linear, left top, left bottom, from($secondary-col), color-stop(#ccc), to($primary-bg));
     background-image: linear-gradient($secondary-col, #ccc, $primary-bg);
     border-radius: 50px;
   }
 }
 
 .header {
+  background-color: #fff;
   background-color: $primary-bg;
-  background-image: 
-    linear-gradient(40deg, transparent 92%, $grad-col-block 92%), 
-    linear-gradient(12deg, transparent 94%, $grad-col-block 94%), 
+  background-image:
+    linear-gradient(40deg, transparent 92%, $grad-col-block 92%),
+    linear-gradient(12deg, transparent 94%, $grad-col-block 94%),
     linear-gradient(70deg, transparent 93%, $grad-col-block 93%);
   border-radius: 10px 10px 0 0;
 
@@ -57,11 +60,13 @@ body {
 }
 
 .main {
+  background-color: #fff;
   background-color: $primary-bg;
   border-radius: 0 0 10px 10px;
 
   &__header {
-    align-self: flex-start;
+    -ms-flex-item-align: start;
+        align-self: flex-start;
     margin: .7rem 0;
     margin-right: 40px;
     padding: .4rem;
@@ -71,7 +76,7 @@ body {
 
     font-size: 2rem;
     background-color: $primary-col;
-    
+
     &::before {
       content: '';
       display: block;
@@ -86,14 +91,16 @@ body {
   }
 
   &__header--level-3 {
-    align-self: stretch;
+    -ms-flex-item-align: stretch;
+        align-self: stretch;
     text-align: center;
     background: none;
     font-size: 1.7rem;
     font-family: 'Encode Sans Condensed', sans-serif;
     margin: 0;
     padding: .4rem 0;
-    text-decoration: underline #9bb7df;
+    -webkit-text-decoration: underline #9bb7df;
+            text-decoration: underline #9bb7df;
 
     &::before {
       display: none;
@@ -102,6 +109,7 @@ body {
 
   &__link {
     color: $primary-col;
+    -webkit-transition: all .1s ease-in-out;
     transition: all .1s ease-in-out;
 
     &:hover {
@@ -121,17 +129,18 @@ body {
     position: relative;
 
     &::before {
-      content: "\f0c1";
+      content: '\e802';
       display: block;
       position: absolute;
       width: 30px;
       height: 1.2rem;
       top: 7px;
-      left: -34px;
+      left: -40px;
       color: transparent;
+      -webkit-transition: inherit;
       transition: inherit;
 
-      font-family: FontAwesome;
+      font-family: "fontello";
       font-size: 1.2rem;
       text-align: right;
     }
@@ -142,22 +151,37 @@ body {
   }
 
   &__block {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-flow: column nowrap;
-    align-items: flex-start;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-flow: column nowrap;
+            flex-flow: column nowrap;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
   }
 
   &__container {
-    align-self: stretch;
+    -ms-flex-item-align: stretch;
+        align-self: stretch;
   }
 }
 
 .about-me {
 
   &__container {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-flow: row nowrap;
-    padding: .7rem 4rem;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-flow: row nowrap;
+            flex-flow: row nowrap;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
   }
 
   &__pic {
@@ -166,9 +190,10 @@ body {
     height: 120px;
     margin: 5px;
     margin-right: 30px;
+    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(50%, transparent), color-stop(50%, $primary-col));
     background-image: linear-gradient(transparent 50%, $primary-col 50%);
     border-radius: 50%;
-    
+
     &::before {
       content: '';
       display: block;
@@ -179,16 +204,21 @@ body {
       bottom: 7px;
       background: url('../../assets/images/ilya.jpg') no-repeat center top;
       background-size: 130% auto;
-      box-shadow: 0 0 0 3px #ccb453;
+      -webkit-box-shadow: 0 0 0 3px #ccb453;
+              box-shadow: 0 0 0 3px #ccb453;
       border-radius: 50%;
     }
   }
 
   &__data {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-flow: column nowrap;
-    padding: .4rem 0;
-    flex-grow: 1;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-flow: column nowrap;
+            flex-flow: column nowrap;
+    width: 70%;
 
     border: 3px solid $primary-col;
     border-radius: 7px;
@@ -196,9 +226,16 @@ body {
 
   &__data-row {
     margin: .4rem 0;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-flow: row nowrap;
-    align-items: center;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-flow: row nowrap;
+            flex-flow: row nowrap;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
   }
 
   &__icon-cont {
@@ -220,13 +257,9 @@ body {
   &__list {
     display: grid;
     grid-template-columns:
-      [html-start] repeat(4, 1fr) 
-      [html-end css-start] repeat(4, 1fr) 
-      [css-end js-start] repeat(4, 1fr) [js-end];
+      [html-start] repeat(4, 1fr) [html-end css-start] repeat(4, 1fr) [css-end js-start] repeat(4, 1fr) [js-end];
     grid-template-rows:
-      [html-start css-start js-start] 
-      repeat(4, $row-height) 
-      [html-end css-end js-end];
+      [html-start css-start js-start] repeat(4, $row-height) [html-end css-end js-end];
     grid-auto-rows: $row-height;
     padding: .7rem 0;
   }
@@ -249,12 +282,12 @@ body {
       grid-row: html-end / span $num-of-details;
       grid-column: html;
     }
-    
+
     &--css {
       grid-row: css-end / span $num-of-details;
       grid-column: css;
     }
-    
+
     &--js {
       grid-row: js-end / span $num-of-details;
       grid-column: js;
@@ -262,27 +295,44 @@ body {
   }
 
   &__details-container {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-flow: column nowrap;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-flow: column nowrap;
+            flex-flow: column nowrap;
     height: 100%;
   }
 
   &__detail {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-grow: 1;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-flex: 1;
+        -ms-flex-positive: 1;
+            flex-grow: 1;
 
     border-bottom: 1px solid transparent;
     background: #fff;
     text-align: center;
 
     &--html {
-      border-image: linear-gradient(to right, #ff651e, #004ce9) 1;
+      -o-border-image: linear-gradient(to right, #ff651e, #004ce9) 1;
+         border-image: -webkit-gradient(linear, left top, right top, from(#ff651e), to(#004ce9)) 1;
+         border-image: linear-gradient(to right, #ff651e, #004ce9) 1;
     }
 
     &--css {
-      border-image: linear-gradient(to right, #004ce9, #f7e018) 1;
+      -o-border-image: linear-gradient(to right, #004ce9, #f7e018) 1;
+         border-image: -webkit-gradient(linear, left top, right top, from(#004ce9), to(#f7e018)) 1;
+         border-image: linear-gradient(to right, #004ce9, #f7e018) 1;
     }
 
     &--js {
@@ -297,19 +347,23 @@ body {
     letter-spacing: 1px;
     text-transform: uppercase;
   }
-  
+
   &__html {
     grid-area: html;
     background-color: lighten($color: #ff651e, $amount: 40);
     background-image: url('../../assets/images/html_logo.png');
-    border-image: linear-gradient(to right, #ff651e, #004ce9) 1;
+    -o-border-image: linear-gradient(to right, #ff651e, #004ce9) 1;
+       border-image: -webkit-gradient(linear, left top, right top, from(#ff651e), to(#004ce9)) 1;
+       border-image: linear-gradient(to right, #ff651e, #004ce9) 1;
   }
 
   &__css {
     grid-area: css;
     background-color: lighten($color: #004ce9, $amount: 40);
     background-image: url('../../assets/images/css_logo.png');
-    border-image: linear-gradient(to right, #004ce9, #f7e018) 1;
+    -o-border-image: linear-gradient(to right, #004ce9, #f7e018) 1;
+       border-image: -webkit-gradient(linear, left top, right top, from(#004ce9), to(#f7e018)) 1;
+       border-image: linear-gradient(to right, #004ce9, #f7e018) 1;
   }
 
   &__js {
@@ -331,7 +385,7 @@ body {
 
   &__less {
     background-image: url('../../assets/images/less_logo.png');
-    background-size: 70% auto;
+    background-size: 50% auto;
     background-color: lighten($color: #2a4f84, $amount: 40);
   }
 
@@ -358,8 +412,12 @@ body {
     background-color: #fff;
     background-size: auto 80%;
     border-radius: 50%;
-    box-shadow: 
-      0 0 0 3px #ccc, 
+    -webkit-box-shadow:
+      0 0 0 3px #ccc,
+      0 0 0 5px #f3dbe7,
+      0 0 0 7px #9bb7df;
+            box-shadow:
+      0 0 0 3px #ccc,
       0 0 0 5px #f3dbe7,
       0 0 0 7px #9bb7df;
   }
@@ -370,9 +428,9 @@ body {
   }
 
   &__node {
-    background: 
-    no-repeat url("../../assets/images/node_logo.png") center 22% / 70% auto, 
-    no-repeat url("../../assets/images/npm_logo.png") center 73% / 40% auto #fff;
+    background:
+      no-repeat url("../../assets/images/node_logo.png") center 22% / 70% auto,
+      no-repeat url("../../assets/images/npm_logo.png") center 73% / 40% auto #fff;
   }
 
   &__ang {
@@ -385,14 +443,26 @@ body {
   }
 
   &__learning {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-flow: column nowrap;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-flow: column nowrap;
+            flex-flow: column nowrap;
   }
 
   &__learning-cont {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-flow: row wrap;
-    justify-content: center;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-flow: row wrap;
+            flex-flow: row wrap;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
     padding: .7rem 0;
   }
 }
@@ -400,23 +470,40 @@ body {
 .projects {
 
   &__list {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-flow: row wrap;
-    justify-content: space-evenly;
-    align-items: center;
-    align-content: space-around;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-flow: row wrap;
+            flex-flow: row wrap;
+    -webkit-box-pack: space-evenly;
+        -ms-flex-pack: space-evenly;
+            justify-content: space-evenly;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -ms-flex-line-pack: distribute;
+        align-content: space-around;
   }
 
   &__project {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-flow: column nowrap;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-flow: column nowrap;
+            flex-flow: column nowrap;
     width: 280px;
     margin: .7rem;
     padding: .4rem;
+    transition: all .1s ease-in-out;
 
     background-color: lighten($color: $secondary-col, $amount: 10);
     border-radius: 7px;
-    box-shadow: 0 3px 0 0 darken($color: $secondary-col, $amount: 30);
+    -webkit-box-shadow: 0 3px 0 0 darken($color: $secondary-col, $amount: 30);
+            box-shadow: 0 3px 0 0 darken($color: $secondary-col, $amount: 30);
   }
 
   &__text {
@@ -425,9 +512,10 @@ body {
     background: $primary-col-dimmed;
     color: #fff;
   }
-  
+
   &__name {
-    align-self: center;
+    -ms-flex-item-align: center;
+        align-self: center;
     padding: .4rem;
     font-family: 'Source Code Pro', monospace;
     font-weight: bold;
@@ -465,13 +553,17 @@ body {
     left: 0;
     width: 0;
     background: $primary-col-dimmed;
+    -webkit-transition: width .4s ease-in-out;
     transition: width .4s ease-in-out;
     height: 100%;
   }
 
   &__link-container {
+    display: -webkit-inline-box;
+    display: -ms-inline-flexbox;
     display: inline-flex;
-    align-self: center;
+    -ms-flex-item-align: center;
+        align-self: center;
     border-radius: 20px;
     background-color: lighten($color: $secondary-col, $amount: 20);
     overflow: hidden;
@@ -481,6 +573,7 @@ body {
     display: block;
     padding: .4rem .7rem;
     color: darken($color: $secondary-col, $amount: 30);
+    -webkit-transition: all .1s ease-in-out;
     transition: all .1s ease-in-out;
 
     &:hover {
@@ -493,26 +586,43 @@ body {
 .education {
 
   &__writing {
-    align-self: center;
+    -ms-flex-item-align: center;
+        align-self: center;
     font-size: 2.2rem;
   }
 
   &__schl {
-    align-self: center;
+    -ms-flex-item-align: center;
+        align-self: center;
     width: 200px;
     height: 200px;
     margin: 1rem;
     background: url('../../assets/images/rsschlool.svg') no-repeat -20% center / 90% auto #fff;
     border-radius: 50%;
-    animation: schl-anim 1s infinite alternate ease-out;
+    -webkit-animation: schl-anim 1s infinite alternate ease-out;
+            animation: schl-anim 1s infinite alternate ease-out;
 
     @at-root {
+      @-webkit-keyframes schl-anim {
+        0% {
+          -webkit-box-shadow: 0 0 10px 0px #ccc;
+                  box-shadow: 0 0 10px 0px #ccc;
+        }
+
+        100% {
+          -webkit-box-shadow: 0 0 10px 8px #ccc;
+                  box-shadow: 0 0 10px 8px #ccc;
+        }
+      }
       @keyframes schl-anim {
         0% {
-          box-shadow: 0 0 10px 0px #ccc;
+          -webkit-box-shadow: 0 0 10px 0px #ccc;
+                  box-shadow: 0 0 10px 0px #ccc;
         }
+
         100% {
-          box-shadow: 0 0 10px 8px #ccc;
+          -webkit-box-shadow: 0 0 10px 8px #ccc;
+                  box-shadow: 0 0 10px 8px #ccc;
         }
       }
     }
@@ -520,12 +630,21 @@ body {
 }
 
 .summ {
-  
+
   &__article {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-flow: column nowrap;
-    align-items: center;
-    justify-content: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-flow: column nowrap;
+            flex-flow: column nowrap;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
   }
 
   &__paragraph {
@@ -539,7 +658,9 @@ body {
 }
 
 .english {
-  align-items: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 
   &__table {
     width: 80%;
@@ -567,6 +688,7 @@ body {
   }
 
   &__cell {
+    background-color: #fff;
     background-color: $primary-bg;
     text-align: center;
     padding: .4rem 0;
@@ -575,11 +697,11 @@ body {
       background-color: $primary-col-dimmed;
     }
   }
-  
+
   &__text {
     font-family: 'Source Code Pro', monospace;
     color: darken($color: $secondary-col, $amount: 30);
-    
+
     &--header {
       font-family: 'Concert One', cursive;
       color: #fff;
@@ -611,6 +733,44 @@ body {
   }
 }
 
+.footer {
+  grid-column: 1 / -1;
+  background-color: lighten($color: $primary-col, $amount: 4);
+  border-top: 1px solid $primary-col;
+  margin-top: .7rem;
+  padding: .7rem 2rem;
+  font-size: .8rem;
+
+  &__writing {
+    color: darken($color: $primary-col, $amount: 10);
+    font-family: 'Raleway', sans-serif;
+    font-weight: bold;
+  }
+
+  &__icon {
+
+    &--heart {
+      color: palevioletred;
+      display: inline-block;
+      font-size: 1.2rem;
+      animation: beat .5s ease-in-out infinite alternate;
+      transform: scale(1);
+
+      @at-root {
+        @keyframes beat {
+          to {
+            transform: scale(1.2);
+          }
+        }
+      }
+    }
+
+    &--coffee {
+      color: chocolate;
+    }
+  }
+}
+
 .code-container {
   display: grid;
   grid-template: 4fr 2fr / auto;
@@ -621,7 +781,7 @@ body {
   top: 0;
   left: 0;
 
-  background-image: linear-gradient(170deg,#c9c8c8 40%, #fff 40%);
+  background-image: linear-gradient(170deg, #c9c8c8 40%, #fff 40%);
 
   &::before {
     content: '';
@@ -632,6 +792,7 @@ body {
     left: 0;
 
     background-color: transparent;
+    -webkit-transition: background-color .1s ease-in-out;
     transition: background-color .1s ease-in-out;
   }
 
@@ -640,9 +801,15 @@ body {
   }
 }
 .code-field {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-flow: column nowrap;
-  align-self: start;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column nowrap;
+          flex-flow: column nowrap;
+  -ms-flex-item-align: start;
+      align-self: start;
   justify-self: center;
 
   width: 470px;
@@ -653,7 +820,10 @@ body {
   background-color: #000;
   font-size: 1.7rem;
   font-family: 'Source Code Pro', monospace;
-  user-select: none;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
   border-radius: 7px;
 
   &__gutter {
@@ -662,19 +832,26 @@ body {
   }
 
   &__main {
-    flex-grow: 1;
+    -webkit-box-flex: 1;
+        -ms-flex-positive: 1;
+            flex-grow: 1;
   }
 
   &__row {
     margin: .7rem 0;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-flow: row nowrap;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-flow: row nowrap;
+            flex-flow: row nowrap;
 
     &--style-output {
       color: lime;
     }
 
-    &--hidden > * {
+    &--hidden>* {
       color: transparent;
     }
   }
@@ -683,6 +860,7 @@ body {
     display: inline-block;
     width: 18px;
     height: 100%;
+    -webkit-transition: .2s all ease-in-out;
     transition: .2s all ease-in-out;
     margin-bottom: -7px;
     border-bottom: 4px solid #00c200;
@@ -693,14 +871,20 @@ body {
     }
   }
 }
+
 .code-writing {
-  align-self: center;
+  -ms-flex-item-align: center;
+      align-self: center;
   justify-self: center;
 
   font-size: 3rem;
   color: #777;
   cursor: default;
-  user-select: none;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  -webkit-transition: .3s 1s all ease-in-out;
   transition: .3s 1s all ease-in-out;
   font-family: 'Concert One', cursive;
   text-transform: uppercase;
@@ -738,12 +922,12 @@ body {
       grid-column: js-end / span 2;
       grid-row: sass / span 2;
     }
-    
+
     &__less {
       grid-column: js-end / span 2;
       grid-row: less / span 2;
     }
-    
+
     &__ajax {
       grid-column: js-end / span 2;
       grid-row: ajax / span 2;
@@ -751,21 +935,27 @@ body {
   }
 
   .skills__list {
-    grid-template-columns: 
-      [html-start js-start] repeat(6, 1fr)
-      [html-end js-end css-start] repeat(6, 1fr) [css-end];
-    grid-template-rows: 
-      [html-start css-start] repeat(4, $row-height)
-      [html-end css-end] repeat($num-of-details, $row-height) 
-      [js-start sass] repeat(2, $row-height) [less] repeat(2, $row-height) [js-end ajax];
+    grid-template-columns:
+      [html-start js-start] repeat(6, 1fr) [html-end js-end css-start] repeat(6, 1fr) [css-end];
+    grid-template-rows:
+      [html-start css-start] repeat(4, $row-height) [html-end css-end] repeat($num-of-details, $row-height) [js-start sass] repeat(2, $row-height) [less] repeat(2, $row-height) [js-end ajax];
   }
 
   .about-me {
 
     &__container {
-      flex-flow: column nowrap;
-      align-items: center;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+          -ms-flex-flow: column nowrap;
+              flex-flow: column nowrap;
+      -webkit-box-align: center;
+          -ms-flex-align: center;
+              align-items: center;
     }
+  }
+
+  .footer {
+    grid-column: none;
   }
 }
 
@@ -775,10 +965,7 @@ body {
     &__list {
       grid-template-columns: [html-start css-start js-start] repeat(4, 1fr) [html-end css-end js-end];
       grid-template-rows:
-        [html-start] repeat(4, $row-height) 
-        [html-end] repeat($num-of-details, $row-height) [css-start]
-        repeat(4, $row-height) [css-end] repeat($num-of-details, $row-height) 
-        [js-start] repeat(4, $row-height) [js-end] repeat($num-of-details, $row-height) [others-start];
+        [html-start] repeat(4, $row-height) [html-end] repeat($num-of-details, $row-height) [css-start] repeat(4, $row-height) [css-end] repeat($num-of-details, $row-height) [js-start] repeat(4, $row-height) [js-end] repeat($num-of-details, $row-height) [others-start];
       grid-auto-columns: 1fr;
       grid-auto-flow: row;
     }
@@ -802,5 +989,9 @@ body {
         grid-row: $i * 2;
       }
     }
+  }
+
+  .footer {
+    margin-top: 0;
   }
 }
