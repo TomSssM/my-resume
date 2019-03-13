@@ -1,6 +1,10 @@
 const inputText = 'Ilya.getInfo();'.split('');
 const input = document.querySelector('.code-field__input');
 const ptr = document.querySelector('.js-pointer');
+const main = document.querySelector('.main');
+const cont = document.querySelector('.js-container');
+
+main.style.opacity = '0'
 
 setTimeout(function name() {
   if(!inputText.length) {
@@ -30,14 +34,24 @@ function showOutput() {
 
 function enterKey(e) {
   if(e.code === 'Enter') {
-    document.removeEventListener('keydown', enterKey);
-    const cont = document.querySelector('.js-container');
-    cont.classList.add('code-container--effect-fade');
-    setTimeout(() => {
-      cont.style.display = 'none';
-      document.body.style.overflow = '';
-    }, 100);
+    fadeIt();
   }
 }
 
 document.body.style.overflow = 'hidden';
+
+setTimeout(() => {
+  if(!cont.classList.contains('code-container--effect-fade')) {
+    fadeIt();
+  }
+}, 10000);
+
+function fadeIt() {
+  document.removeEventListener('keydown', enterKey);
+  cont.classList.add('code-container--effect-fade');
+  setTimeout(() => {
+    cont.style.display = 'none';
+    document.body.style.overflow = '';
+    main.style.opacity = '';
+  }, 100);
+}
