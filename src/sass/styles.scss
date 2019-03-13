@@ -791,6 +791,7 @@ body {
   position: fixed;
   top: 0;
   left: 0;
+  z-index: 9999;
 
   background-image: linear-gradient(170deg, #c9c8c8 40%, #fff 40%);
 
