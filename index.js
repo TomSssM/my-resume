@@ -26,6 +26,7 @@ function showOutput() {
     hiddRows.forEach(r => r.classList.remove('code-field__row--hidden'));
     const rows = document.querySelectorAll('.code-field__main');
     rows[rows.length - 1].append(ptr);
+    document.querySelector('.js-writing').style.transition = '.3s 1s all ease-in-out';
     document.querySelector('.js-writing').classList.remove('code-writing--hidden');
     document.addEventListener('keydown', enterKey);
     setInterval(() => ptr.classList.toggle('code-field__pointer--hidden'), 490);
